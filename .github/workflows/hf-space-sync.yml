@@ -14,8 +14,9 @@ jobs:
       - name: Sync to Space
         uses: alex-bene/huggingface-space-sync-action@v0.1
         with:
-          space_id: Aadi070201/battery_detect
-          subdirectory: .        # change if your app is in a subfolder
-          space_branch: main
-        env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          github_repo_id: Aadi070201/Battery_app            # <-- your GitHub repo
+          github_branch: main
+          huggingface_repo_id: Aadi070201/battery_detect    # <-- your Space
+          hf_username: Aadi070201
+          hf_token: ${{ secrets.HF_TOKEN }}
+          yaml_header_path: .github/hf_readme_header.md
