@@ -18,4 +18,4 @@ jobs:
           subdirectory: .        # change if your app is in a subfolder
           space_branch: main
         env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_TOKEN: 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
