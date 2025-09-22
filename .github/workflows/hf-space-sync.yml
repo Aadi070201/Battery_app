@@ -9,7 +9,11 @@ jobs:
   push-to-space:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout full history (unshallow)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0       # <-- IMPORTANT: full history
+          lfs: false           # avoid LFS smudge; we don't need it for code
 
       - name: Configure Git
         run: |
@@ -21,5 +25,8 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           SPACE: Aadi070201/battery_detect
         run: |
+          # Optional: fetch the Space branch first; ignore failure if it doesn't exist
           git remote add space https://oauth2:${HF_TOKEN}@huggingface.co/spaces/${SPACE}
+          git fetch space main || true
+          # Force push current commit to Space main
           git push space HEAD:main --force
