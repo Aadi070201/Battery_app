@@ -15,9 +15,9 @@ from huggingface_hub import hf_hub_download
 warnings.filterwarnings("ignore")
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 MODEL_PATH = os.getenv("MODEL_PATH") or hf_hub_download(
-    repo_id="Aadi070201/padim-cylindrical",  # <- your HF model repo
+    repo_id="Aadi070201/Aadi070201padimcylindrical",  # <- your HF model repo
     filename="padim_model_cylindrical.pth"
-
+)
 #MODEL_PATH = "padim_model_cylindrical.pth"
 
 # ---------------------- Utilities ----------------------

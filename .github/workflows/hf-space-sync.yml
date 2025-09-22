@@ -1,0 +1,21 @@
+name: Sync With Hugging Face Space
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sync to Space
+        uses: alex-bene/huggingface-space-sync-action@v0.1
+        with:
+          space_id: Aadi070201/battery_detect
+          subdirectory: .        # change if your app is in a subfolder
+          space_branch: main
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
