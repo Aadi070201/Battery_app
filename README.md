@@ -1,3 +1,7 @@
-# Battery Detect
-Gradio app for PaDiM anomaly detection.
- and
+---
+title: Battery Detect
+emoji: 🔍
+sdk: gradio
+app_file: app.py
+pinned: false
+---
